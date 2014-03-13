@@ -1,0 +1,27 @@
+<h1>Listing cabins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cabins.each do |cabin| %>
+      <tr>
+        <td><%= cabin.name %></td>
+        <td><%= link_to 'Show', cabin %></td>
+        <td><%= link_to 'Edit', edit_cabin_path(cabin) %></td>
+        <td><%= link_to 'Destroy', cabin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cabin', new_cabin_path %>
