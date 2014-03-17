@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313130419) do
+ActiveRecord::Schema.define(version: 20140317184502) do
 
   create_table "cabins", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "needs", force: true do |t|
+    t.string   "info"
+    t.integer  "cabin_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "supplies", force: true do |t|
+    t.string   "info"
+    t.integer  "cabin_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -24,6 +39,14 @@ ActiveRecord::Schema.define(version: 20140313130419) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
+  end
+
+  create_table "visits", force: true do |t|
+    t.string   "time"
+    t.integer  "cabin_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

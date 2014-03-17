@@ -1,4 +1,10 @@
 Cabinmaster::Application.routes.draw do
+  resources :visits
+
+  resources :supplies
+
+  resources :needs
+
   resources :users
 
   resources :cabins
