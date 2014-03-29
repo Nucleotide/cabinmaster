@@ -7,6 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="navbar">
+  <%= link_to 'cabins', cabins_path %>
+  <%= link_to 'needs', needs_path %>
+  <%= link_to 'supplies', supplies_path %>
+  <%= link_to 'visits', visits_path %>
+  <% unless current_user.nil? %>
+      <%= link_to 'signout', signout_path, method: :delete %>
+  <% else %>
+      <%= link_to 'signin', signin_path %>
+  <% end %>
+</div>
 
 <%= yield %>
 

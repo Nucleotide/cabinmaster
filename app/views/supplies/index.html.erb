@@ -3,8 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>Info</th>
       <th>Cabin</th>
+      <th>Info</th>
       <th></th>
       <th></th>
       <th></th>
@@ -26,4 +26,7 @@
 
 <br>
 
-<%= link_to 'New Supply', new_supply_path %>
+
+<% unless current_user.nil? %>
+    <%= link_to 'New Supply', new_supply_path %>
+<% end %>

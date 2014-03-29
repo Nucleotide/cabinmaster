@@ -1,27 +1,11 @@
-<h1>Listing cabins</h1>
+<p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @cabins.each do |cabin| %>
-      <tr>
-        <td><%= cabin.name %></td>
-        <td><%= link_to 'Show', cabin %></td>
-        <td><%= link_to 'Edit', edit_cabin_path(cabin) %></td>
-        <td><%= link_to 'Destroy', cabin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h2>Click cabin for more info</h2>
 
-<br>
 
-<%= link_to 'New Cabin', new_cabin_path %>
+<% @cabins.each do |cabin| %>
+  <h3><%= link_to cabin.name, cabin  %></h3></br>
+<% end %>
+
+

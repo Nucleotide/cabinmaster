@@ -3,8 +3,8 @@
 <table>
   <thead>
     <tr>
-      <th>Info</th>
       <th>Cabin</th>
+      <th>Info</th>
       <th>User</th>
       <th></th>
       <th></th>
@@ -28,4 +28,7 @@
 
 <br>
 
-<%= link_to 'New Need', new_need_path %>
+<% unless current_user.nil? %>
+    <%= link_to 'New Need', new_need_path %>
+<% end %>
+

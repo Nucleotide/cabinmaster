@@ -28,4 +28,6 @@
 
 <br>
 
-<%= link_to 'New Visit', new_visit_path %>
+<% unless current_user.nil? %>
+    <%= link_to 'New Visit', new_visit_path %>
+<% end %>

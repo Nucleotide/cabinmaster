@@ -4,6 +4,9 @@
   <strong>Name:</strong>
   <%= @cabin.name %>
 </p>
+<p>
+  This cabin has <%= pluralize(@cabin.needs.count, 'need') %>
+</p>
 
-<%= link_to 'Edit', edit_cabin_path(@cabin) %> |
+
 <%= link_to 'Back', cabins_path %>
