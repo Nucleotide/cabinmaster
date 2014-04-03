@@ -15,4 +15,5 @@ class Visit < ActiveRecord::Base
     usr = User.find_by id: user_id
     return usr.name
   end
+
 end

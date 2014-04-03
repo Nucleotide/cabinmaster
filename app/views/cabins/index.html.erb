@@ -2,7 +2,8 @@
 
 <% @cabins.each do |cabin| %>
   <h2><%= cabin.name %></h2>
-  <p>Put upcoming visits here</p>
+    <p>Next visit:</p>
+    <p><%= cabin.all_visits %></p>
 <% end %>
 
 
