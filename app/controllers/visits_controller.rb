@@ -15,10 +15,12 @@ class VisitsController < ApplicationController
   # GET /visits/new
   def new
     @visit = Visit.new
+    @cabins = Cabin.all
   end
 
   # GET /visits/1/edit
   def edit
+    @cabins = Cabin.all
   end
 
   # POST /visits
@@ -28,9 +30,11 @@ class VisitsController < ApplicationController
 
     respond_to do |format|
       if @visit.save
-        format.html { redirect_to @visit, notice: 'Visit was successfully created.' }
+        current_user.visits << @visit
+        format.html { redirect_to visits_path, notice: 'Visit was successfully created.' }
         format.json { render action: 'show', status: :created, location: @visit }
       else
+        @cabins = Cabin.all
         format.html { render action: 'new' }
         format.json { render json: @visit.errors, status: :unprocessable_entity }
       end
@@ -42,9 +46,10 @@ class VisitsController < ApplicationController
   def update
     respond_to do |format|
       if @visit.update(visit_params)
-        format.html { redirect_to @visit, notice: 'Visit was successfully updated.' }
+        format.html { redirect_to visits_path, notice: 'Visit was successfully updated.' }
         format.json { head :no_content }
       else
+        @cabins = Cabin.all
         format.html { render action: 'edit' }
         format.json { render json: @visit.errors, status: :unprocessable_entity }
       end
@@ -56,7 +61,7 @@ class VisitsController < ApplicationController
   def destroy
     @visit.destroy
     respond_to do |format|
-      format.html { redirect_to visits_url }
+      format.html { redirect_to visits_url, notice: 'Visit was successfully canceled.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +74,6 @@ class VisitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_params
-      params.require(:visit).permit(:time, :cabin_id, :user_id)
+      params.require(:visit).permit(:start_date, :cabin_id, :end_date)
     end
 end

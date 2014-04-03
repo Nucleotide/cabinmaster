@@ -15,10 +15,10 @@
     <%= f.label :info %><br>
     <%= f.text_field :info %>
   </div>
-  <div class="field">
-    <%= f.label :cabin_id %><br>
-    <%= f.number_field :cabin_id %>
-  </div>
+    <div class="field">
+      <%= f.label :cabin_id %><br>
+      <%= f.select :cabin_id, options_from_collection_for_select(@cabins, :id, :name, selected: @supply.cabin_id) %>
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

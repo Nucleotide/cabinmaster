@@ -15,10 +15,12 @@ class NeedsController < ApplicationController
   # GET /needs/new
   def new
     @need = Need.new
+    @cabins = Cabin.all
   end
 
   # GET /needs/1/edit
   def edit
+    @cabins = Cabin.all
   end
 
   # POST /needs
@@ -28,9 +30,11 @@ class NeedsController < ApplicationController
 
     respond_to do |format|
       if @need.save
-        format.html { redirect_to @need, notice: 'Need was successfully created.' }
+        current_user.needs << @need
+        format.html { redirect_to needs_path, notice: 'Need was successfully created.' }
         format.json { render action: 'show', status: :created, location: @need }
       else
+        @cabins = Cabin.all
         format.html { render action: 'new' }
         format.json { render json: @need.errors, status: :unprocessable_entity }
       end
@@ -42,9 +46,10 @@ class NeedsController < ApplicationController
   def update
     respond_to do |format|
       if @need.update(need_params)
-        format.html { redirect_to @need, notice: 'Need was successfully updated.' }
+        format.html { redirect_to needs_path, notice: 'Need was successfully updated.' }
         format.json { head :no_content }
       else
+        @cabins = Cabin.all
         format.html { render action: 'edit' }
         format.json { render json: @need.errors, status: :unprocessable_entity }
       end
@@ -56,7 +61,7 @@ class NeedsController < ApplicationController
   def destroy
     @need.destroy
     respond_to do |format|
-      format.html { redirect_to needs_url }
+      format.html { redirect_to needs_url, notice: 'Need was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +74,6 @@ class NeedsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def need_params
-      params.require(:need).permit(:info, :cabin_id, :user_id)
+      params.require(:need).permit(:info, :cabin_id)
     end
 end

@@ -15,10 +15,12 @@ class SuppliesController < ApplicationController
   # GET /supplies/new
   def new
     @supply = Supply.new
+    @cabins = Cabin.all
   end
 
   # GET /supplies/1/edit
   def edit
+    @cabins = Cabin.all
   end
 
   # POST /supplies
@@ -28,9 +30,11 @@ class SuppliesController < ApplicationController
 
     respond_to do |format|
       if @supply.save
-        format.html { redirect_to @supply, notice: 'Supply was successfully created.' }
+        current_user.supplies << @supply
+        format.html { redirect_to supplies_path, notice: 'Supply was successfully created.' }
         format.json { render action: 'show', status: :created, location: @supply }
       else
+        @cabins = Cabin.all
         format.html { render action: 'new' }
         format.json { render json: @supply.errors, status: :unprocessable_entity }
       end
@@ -42,9 +46,10 @@ class SuppliesController < ApplicationController
   def update
     respond_to do |format|
       if @supply.update(supply_params)
-        format.html { redirect_to @supply, notice: 'Supply was successfully updated.' }
+        format.html { redirect_to supplies_path, notice: 'Supply was successfully updated.' }
         format.json { head :no_content }
       else
+        @cabins = Cabin.all
         format.html { render action: 'edit' }
         format.json { render json: @supply.errors, status: :unprocessable_entity }
       end
@@ -56,7 +61,7 @@ class SuppliesController < ApplicationController
   def destroy
     @supply.destroy
     respond_to do |format|
-      format.html { redirect_to supplies_url }
+      format.html { redirect_to supplies_url, notice: 'Supply was successfully deleted.' }
       format.json { head :no_content }
     end
   end

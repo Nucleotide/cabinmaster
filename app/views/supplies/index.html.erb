@@ -4,8 +4,8 @@
   <thead>
     <tr>
       <th>Cabin</th>
+      <th>User</th>
       <th>Info</th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -14,9 +14,9 @@
   <tbody>
     <% @supplies.each do |supply| %>
       <tr>
+        <td><%= supply.cabin_name(supply.cabin_id) %></td>
+        <td><%= supply.user_name(supply.user_id) %></td>
         <td><%= supply.info %></td>
-        <td><%= supply.cabin_id %></td>
-        <td><%= link_to 'Show', supply %></td>
         <td><%= link_to 'Edit', edit_supply_path(supply) %></td>
         <td><%= link_to 'Destroy', supply, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

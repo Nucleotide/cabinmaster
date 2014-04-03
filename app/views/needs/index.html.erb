@@ -4,9 +4,8 @@
   <thead>
     <tr>
       <th>Cabin</th>
-      <th>Info</th>
       <th>User</th>
-      <th></th>
+      <th>Info</th>
       <th></th>
       <th></th>
     </tr>
@@ -15,10 +14,9 @@
   <tbody>
     <% @needs.each do |need| %>
       <tr>
+        <td><%= need.cabin_name(need.cabin_id) %></td>
+        <td><%= need.user_name(need.user_id) %></td>
         <td><%= need.info %></td>
-        <td><%= need.cabin_id %></td>
-        <td><%= need.user_id %></td>
-        <td><%= link_to 'Show', need %></td>
         <td><%= link_to 'Edit', edit_need_path(need) %></td>
         <td><%= link_to 'Destroy', need, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

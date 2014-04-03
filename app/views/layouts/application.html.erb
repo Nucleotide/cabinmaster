@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <div id="notice"><%= notice %></div>
 </head>
 <body>
 <div class="navbar">
@@ -13,9 +14,9 @@
   <%= link_to 'supplies', supplies_path %>
   <%= link_to 'visits', visits_path %>
   <% unless current_user.nil? %>
-      <%= link_to 'signout', signout_path, method: :delete %>
+      <%= link_to 'logout', logout_path, method: :delete %>
   <% else %>
-      <%= link_to 'signin', signin_path %>
+      <%= link_to 'login', login_path %>
   <% end %>
 </div>
 

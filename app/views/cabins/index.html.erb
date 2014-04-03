@@ -1,11 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-
-<h2>Click cabin for more info</h2>
-
+<div id="notice"><%= notice %></div>
 
 <% @cabins.each do |cabin| %>
-  <h3><%= link_to cabin.name, cabin  %></h3></br>
+  <h2><%= cabin.name %></h2>
+  <p>Put upcoming visits here</p>
 <% end %>
 
 
