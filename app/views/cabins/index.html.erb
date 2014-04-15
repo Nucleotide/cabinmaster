@@ -3,7 +3,11 @@
 <% @cabins.each do |cabin| %>
   <h2><%= cabin.name %></h2>
     <p>Next visit:</p>
-    <p><%= cabin.all_visits %></p>
+    <% if cabin.next_visit.nil? %>
+        <p>No visits scheduled</p>
+    <% else %>
+        <p><%= cabin.next_visit %></p>
+    <% end %>
 <% end %>
 
 

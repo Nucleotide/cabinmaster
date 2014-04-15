@@ -1,10 +1,15 @@
 language: ruby
-
 rvm:
- - 2.0.0
-
+- 2.0.0
 script:
- - bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -fd spec/
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: hb1WdOlWzhtMh8S08N+VC1fwqdzLOLMI1YrOJmpTWexBpbEvosWRLYs2d6OaTgvPpzRAd551zu6GZ//PPGkWTq3h7JSyXvfbviEKkDgZDCArvoBT+6xdTQQIDvN4nUhJIMDJvd9pYVYMuo1Vh2+cmeu/n31eG+12B2SsbiY6D6M=
+  app: cabinmaster
+  on:
+    repo: Nucleotide/cabinmaster
