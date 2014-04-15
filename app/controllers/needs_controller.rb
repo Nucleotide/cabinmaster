@@ -5,6 +5,14 @@ class NeedsController < ApplicationController
   # GET /needs.json
   def index
     @needs = Need.all
+
+    order = params[:order] || 'cabin'
+
+    case order
+      when 'cabin' then @needs.sort_by!{ |n| n.cabin_id }
+      when 'user' then @needs.sort_by!{ |n| n.user_id }
+      when 'info' then @needs.sort_by!{ |n| n.info }
+    end
   end
 
   # GET /needs/1

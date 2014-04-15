@@ -5,6 +5,14 @@ class SuppliesController < ApplicationController
   # GET /supplies.json
   def index
     @supplies = Supply.all
+
+    order = params[:order] || 'cabin'
+
+    case order
+      when 'cabin' then @supplies.sort_by!{ |s| s.cabin_id }
+      when 'user' then @supplies.sort_by!{ |s| s.user_id }
+      when 'info' then @supplies.sort_by!{ |s| s.info }
+    end
   end
 
   # GET /supplies/1

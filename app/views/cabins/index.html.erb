@@ -1,10 +1,11 @@
 <div id="notice"><%= notice %></div>
 
+<h1>Hello <%= current_user.name %>!</h1>
 <% @cabins.each do |cabin| %>
   <h2><%= cabin.name %></h2>
     <p>Next visit:</p>
     <% if cabin.next_visit(cabin.id).nil? %>
-        <p>No visits scheduled</p>
+        <p>No visits scheduled in the near future</p>
     <% else %>
         <p><%= cabin.next_visit(cabin.id) %></p>
     <% end %>

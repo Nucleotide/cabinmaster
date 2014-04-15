@@ -1,11 +1,14 @@
+<div id="notice"><%= notice %></div>
 <h1>Listing needs</h1>
+<p>You can order the list based on cabin, user or the information.<br/>
+    Want to search? Ctrl + F</p>
 
 <table>
   <thead>
     <tr>
-      <th>Cabin</th>
-      <th>User</th>
-      <th>Info</th>
+      <th><%= link_to 'Cabin', needs_path(order:"cabin") %></th>
+      <th><%= link_to 'User', needs_path(order:"user") %></th>
+      <th><%= link_to 'Info', needs_path(order:"info") %></th>
       <th></th>
       <th></th>
     </tr>
