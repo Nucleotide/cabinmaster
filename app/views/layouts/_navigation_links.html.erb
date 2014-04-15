@@ -1,0 +1,11 @@
+<%# add navigation links to this file %>
+<li class="<%= 'active' if params[:controller] == 'cabins' %>"><%= link_to 'Home', cabins_path %></li>
+<li class="<%= 'active' if params[:controller] == 'needs' %>"><%= link_to 'Needs', needs_path %></li>
+<li class="<%= 'active' if params[:controller] == 'supplies' %>"><%= link_to 'Supplies', supplies_path %></li>
+<li class="<%= 'active' if params[:controller] == 'visits' %>"><%= link_to 'Visits', visits_path %></li>
+<% unless current_user.nil? %>
+    <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+<% else %>
+  <li><%= link_to 'Login', login_path %></li>
+<% end %>
+

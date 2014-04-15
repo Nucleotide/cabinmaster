@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Cabinmaster</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div class="navbar">
-  <%= link_to 'home', cabins_path %>
-  <%= link_to 'needs', needs_path %>
-  <%= link_to 'supplies', supplies_path %>
-  <%= link_to 'visits', visits_path %>
-  <% unless current_user.nil? %>
-      <%= link_to 'logout', logout_path, method: :delete %>
-  <% else %>
-      <%= link_to 'login', login_path %>
-  <% end %>
-</div>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Cabinmaster" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Cabinmaster" %>">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+    </header>
+    <main role="main">
+       <%= render 'layouts/messages' %>
 
-<%= yield %>
-
-</body>
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-8">
+          <%= yield %>
+        </div>
+        <div class="col-md-2">
+        </div>
+      </div>
+    </main>
+    <div id="footer">
+    <p class="text-muted">
+      ©Joonas Laakkonen 2014
+    </p>
+    </div>
+  </body>
 </html>

@@ -1,7 +1,6 @@
-<div id="notice"><%= notice %></div>
 <h1>Listing Future visits</h1>
 
-<table>
+<table class="table table-condensed">
   <thead>
     <tr>
       <th>Start date</th>
@@ -32,6 +31,6 @@
 <br>
 
 <% unless current_user.nil? %>
-    <%= link_to 'All visits', all_visits_path %> <br/>
-    <%= link_to 'New Visit', new_visit_path %>
+    <%= link_to 'All visits', all_visits_path, class:'btn btn-primary' %><br/><br/>
+    <%= link_to 'New Visit', new_visit_path, class:'btn btn-primary' %>
 <% end %>

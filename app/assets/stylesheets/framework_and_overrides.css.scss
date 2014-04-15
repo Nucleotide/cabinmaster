@@ -1,0 +1,101 @@
+// Temporary workaround for Rails 4.1.2 pending releaase of bootstrap-sass 3.1.2
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
+
+// import the CSS framework
+@import "bootstrap";
+
+// make all images responsive by default
+img {
+  @extend .img-responsive;
+  margin: 0 auto;
+  }
+// override for the 'Home' navigation link
+.navbar-brand {
+  font-size: inherit;
+  }
+
+// THESE ARE EXAMPLES YOU CAN MODIFY
+// create your own classes
+// to make views framework-neutral
+.column {
+  @extend .col-md-6;
+  @extend .text-center;
+  }
+.form {
+  @extend .col-md-6;
+  }
+.form-centered {
+  @extend .col-md-6;
+  @extend .text-center;
+  }
+.submit {
+  @extend .btn;
+  @extend .btn-primary;
+  @extend .btn-lg;
+  }
+.btn-primary {
+  background-color:#3D3242;
+  border-color:#3D3242;
+}
+
+.btn-primary:hover {
+  background-color:#7A3E48;
+  border-color:#3D3242;
+}
+.btn-primary:visited {
+  color: #D1D1D1;
+}
+.text-muted {
+  color: #D1D1D1;
+  text-align: center;
+}
+.navbar .navbar-nav > li > a:hover {
+  background-color: #915B51;
+}
+.navbar .navbar-nav > .active > a {
+  background-color: #7A3E48;
+}
+.navbar .navbar-nav > .active > a:hover {
+  background-color: #7A3E48;
+}
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  background-color: #3D3242;
+}
+
+.navbar {
+  background-color: #3D3242;
+}
+
+.navbar .navbar-collapse {
+  text-align: center;
+  background-color: #3D3242;
+}
+
+#footer {
+  width: 100%;
+  height: 50px;
+  padding: 15px 0 15px 0;
+  bottom: 0;
+  position: fixed;
+  background-color: #3D3242;
+  border-top: 1px solid #3D3242;
+}
+// apply styles to HTML elements
+// to make views framework-neutral
+main {
+  @extend .container;
+  background-color: #ffffff;
+  padding-bottom: 50px;
+  margin-bottom: 25px;
+  width: 100%;
+  margin-top: 50px; // accommodate the navbar
+  }
+section {
+  @extend .row;
+  margin-top: 10px;
+  }

@@ -1,9 +1,8 @@
-<div id="notice"><%= notice %></div>
 <h1>Listing needs</h1>
 <p>You can order the list based on cabin, user or the information.<br/>
     Want to search? Ctrl + F</p>
 
-<table>
+<table class="table table-condensed">
   <thead>
     <tr>
       <th><%= link_to 'Cabin', needs_path(order:"cabin") %></th>
@@ -30,6 +29,6 @@
 <br>
 
 <% unless current_user.nil? %>
-    <%= link_to 'New Need', new_need_path %>
+    <%= link_to 'New Need', new_need_path, class:'btn btn-primary' %>
 <% end %>
 
