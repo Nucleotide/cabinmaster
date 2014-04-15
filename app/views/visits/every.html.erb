@@ -7,8 +7,6 @@
     <th>End date</th>
     <th>Cabin</th>
     <th>User</th>
-    <th></th>
-    <th></th>
   </tr>
   </thead>
 
@@ -19,8 +17,6 @@
             <td><%= visit.end_date %></td>
             <td><%= visit.cabin_name(visit.cabin_id) %></td>
             <td><%= visit.user_name(visit.user_id) %></td>
-            <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
-            <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
   <% end %>
   </tbody>

@@ -6,7 +6,7 @@ class Cabin < ActiveRecord::Base
   has_many :visits, :dependent => :destroy
 
   def next_visit(id)
-    if Visit.find_by cabin_id: id.nil?
+    if Visit.find_by(cabin_id: id).nil?
       return nil
     else
       @visits = Visit.where(:cabin_id => id, :start_date => (Time.now..(Time.now+180.days)))

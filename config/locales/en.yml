@@ -28,5 +28,7 @@ en:
           attributes:
             end_date:
               after_or_equal_to: must be same or after start day
+              not_a_date: "must be a valid date in the given format"
             start_date:
               after: "must be tomorrow or after"
+              not_a_date: "must be a valid date in the given format"
