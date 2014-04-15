@@ -3,8 +3,8 @@ class Visit < ActiveRecord::Base
   belongs_to :user
   belongs_to :cabin
 
-  validates :start_date, presence: true
-  validates :end_date, presence: true
+  validates :start_date, date: { after: Proc.new { Date.today }}, presence: true
+  validates :end_date, date: { after_or_equal_to: :start_date }, presence: true
 
   def cabin_name(cabin_id)
     cab = Cabin.find_by id: cabin_id

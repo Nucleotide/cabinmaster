@@ -1,5 +1,11 @@
 class SessionsController < ApplicationController
+
+  skip_before_filter :require_login
+
   def new
+    unless current_user.nil?
+      redirect_to cabins_path
+    end
   end
 
   def create

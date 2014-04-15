@@ -4,12 +4,16 @@ class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json
   def index
-    @visits = Visit.all
+    @visits = Visit.all.order(:start_date)
   end
 
   # GET /visits/1
   # GET /visits/1.json
   def show
+  end
+
+  def every
+    @visits = Visit.all.order(:start_date)
   end
 
   # GET /visits/new

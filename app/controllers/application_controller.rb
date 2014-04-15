@@ -5,8 +5,18 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  before_filter :require_login
+
   def current_user
     return nil if session[:user_id].nil?
     User.find(session[:user_id])
+  end
+
+  private
+
+  def require_login
+    unless current_user
+      redirect_to login_url
+    end
   end
 end

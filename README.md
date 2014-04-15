@@ -1,8 +1,8 @@
 cabinmaster
 ===========
 
-**Heroku
-Coming soon..
+Heroku
+http://cabinmaster.herokuapp.com/
 
 Tunnukset:
 username:testaaja
