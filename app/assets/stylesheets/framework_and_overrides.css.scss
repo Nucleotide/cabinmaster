@@ -36,9 +36,13 @@ img {
   @extend .btn-primary;
   @extend .btn-lg;
   }
+
 .btn-primary {
   background-color:#3D3242;
   border-color:#3D3242;
+}
+.login {
+  text-align: center;
 }
 .btn-primary:hover {
   background-color:#7A3E48;
