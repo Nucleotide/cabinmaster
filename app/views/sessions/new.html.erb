@@ -1,10 +1,20 @@
-<h2>Please, sign in first</h2>
-<br/>
-<%= form_tag sessions_path do %>
-    Username:
-    <%= text_field_tag :name, params[:name] %>
-    Password:
-    <%= text_field_tag :password, params[:password] %>
-    <%= submit_tag "Log in" %>
+<h3 align="center">Please, sign in first</h3>
 
-<% end %>
+<table align="center">
+  <tbody>
+    <%= form_tag sessions_path do %>
+      <tr>
+        <td><%= text_field_tag :name, params[:name], :placeholder => 'Username' %></td>
+      </tr>
+      <tr>
+        <td><%= text_field_tag :password, params[:password], :placeholder => 'Password' %></td>
+      </tr>
+      <tr>
+        <td><%= submit_tag "Log in" %></td>
+      </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+
