@@ -4,6 +4,9 @@ cabinmaster
 Heroku
 http://cabinmaster.herokuapp.com/
 
+Dokumentaatio
+https://github.com/Nucleotide/cabinmaster/wiki
+
 Tunnukset:
 username:testaaja
 pw:testi
