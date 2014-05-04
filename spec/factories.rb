@@ -1,4 +1,5 @@
 FactoryGirl.define do
+
   factory :cabin do
     name "Test cabin"
   end
@@ -8,4 +9,5 @@ FactoryGirl.define do
     password "hello"
     password_confirmation "hello"
   end
+
 end
