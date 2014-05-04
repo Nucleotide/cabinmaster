@@ -15,4 +15,4 @@ pw:testi
 [![Code Climate](https://codeclimate.com/github/Nucleotide/cabinmaster.png)](https://codeclimate.com/github/Nucleotide/cabinmaster)
 
 Featuret:
-https://github.com/Nucleotide/cabinmaster/cucumber_reports.html
+http://cabinmaster.herokuapp.com/cucumber_reports.html
