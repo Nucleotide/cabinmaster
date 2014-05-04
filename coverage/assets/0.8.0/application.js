@@ -340,7 +340,7 @@ var hljs=new function(){function l(o){return o.replace(/&/gm,"&amp;").replace(/<
 		}
 	}
 
-	// ColorBox's markup needs to be added to the DOM prior to being called
+	// ColorBox's markup needs_steps.rb to be added to the DOM prior to being called
 	// so that the browser will go ahead and load the CSS background images.
 	function appendHTML() {
 		if (!$box && document.body) {

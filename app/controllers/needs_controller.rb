@@ -1,8 +1,8 @@
 class NeedsController < ApplicationController
   before_action :set_need, only: [:show, :edit, :update, :destroy]
 
-  # GET /needs
-  # GET /needs.json
+  # GET /needs_steps.rb
+  # GET /needs_steps.rb.json
   def index
     @needs = Need.all
 
@@ -15,24 +15,24 @@ class NeedsController < ApplicationController
     end
   end
 
-  # GET /needs/1
-  # GET /needs/1.json
+  # GET /needs_steps.rb/1
+  # GET /needs_steps.rb/1.json
   def show
   end
 
-  # GET /needs/new
+  # GET /needs_steps.rb/new
   def new
     @need = Need.new
     @cabins = Cabin.all
   end
 
-  # GET /needs/1/edit
+  # GET /needs_steps.rb/1/edit
   def edit
     @cabins = Cabin.all
   end
 
-  # POST /needs
-  # POST /needs.json
+  # POST /needs_steps.rb
+  # POST /needs_steps.rb.json
   def create
     @need = Need.new(need_params)
 
@@ -49,8 +49,8 @@ class NeedsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /needs/1
-  # PATCH/PUT /needs/1.json
+  # PATCH/PUT /needs_steps.rb/1
+  # PATCH/PUT /needs_steps.rb/1.json
   def update
     respond_to do |format|
       if @need.update(need_params)
@@ -64,8 +64,8 @@ class NeedsController < ApplicationController
     end
   end
 
-  # DELETE /needs/1
-  # DELETE /needs/1.json
+  # DELETE /needs_steps.rb/1
+  # DELETE /needs_steps.rb/1.json
   def destroy
     @need.destroy
     respond_to do |format|

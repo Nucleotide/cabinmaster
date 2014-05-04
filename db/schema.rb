@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20140403182443) do
     t.datetime "updated_at"
   end
 
-  create_table "needs", force: true do |t|
+  create_table "needs_steps.rb", force: true do |t|
     t.string   "info"
     t.integer  "cabin_id"
     t.integer  "user_id"
