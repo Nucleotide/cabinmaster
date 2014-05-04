@@ -36,7 +36,7 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.14.1'
+  gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'sqlite3'
 end
 
