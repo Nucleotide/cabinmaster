@@ -1,17 +1,24 @@
 class SessionsController < ApplicationController
 
+  before_action :set_session, only: [:show, :edit, :update]
+  before_action :authenticate_with_token, only:[:index]
+
   skip_before_filter :require_login
 
-  def new
-    unless current_user.nil?
-      redirect_to cabins_path
-    end
+  def index
+    authenticate_with_token
+    @sessions = Session.all
+  end
 
+  def new
+    if current_user.nil? and authenticate_with_token.nil?
+      @session = Session.new
+    end
   end
 
   def createRemoteSession
 
-    user = User.find_by user:params[:name]
+    user = User.find_by name: params[:name]
     auth = user.authenticate(params[:password]) if user
 
     @session = Session.new(user:user)
@@ -45,7 +52,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to cabins_path, notice: "Logged out!"
+    redirect_to login_path, notice: "Logged out!"
   end
 
   private

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+
 
   helper_method :current_user
 
@@ -14,14 +14,13 @@ class ApplicationController < ActionController::Base
 
   def authenticate_with_token
     token = request.headers['auth-token']
-    user = Session.authenticate_with token
-    render json: {}, status: :unauthorized unless user
+    Session.authenticate_with token
   end
 
   private
 
   def require_login
-    unless current_user
+    if current_user.nil? and authenticate_with_token.nil?
       redirect_to login_url
     end
   end
