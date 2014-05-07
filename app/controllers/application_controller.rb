@@ -12,6 +12,12 @@ class ApplicationController < ActionController::Base
     User.find(session[:user_id])
   end
 
+  def authenticate_with_token
+    token = request.headers['auth-token']
+    user = Session.authenticate_with token
+    render json: {}, status: :unauthorized unless user
+  end
+
   private
 
   def require_login

@@ -10,12 +10,15 @@ Cabinmaster::Application.routes.draw do
 
   resources :cabins, only: [:index, :show]
 
-  resources :sessions, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :createRemoteSession, :destroyRemoteSession]
 
   root 'cabins#index'
 
   get 'login', to: 'sessions#new'
   delete 'logout', to: 'sessions#destroy'
+
+  post 'session', to: 'sessions#createRemoteSession'
+  delete 'session', to: 'sessions#destroyRemoteSession'
 
   get 'all_visits', to: 'visits#every'
 
