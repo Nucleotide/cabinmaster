@@ -1,9 +1,9 @@
-<h1>Hello <%= current_user.name %>!</h1>
+<h2>Moi <%= current_user.name %>!</h2>
 <% @cabins.each do |cabin| %>
-  <h2><%= cabin.name %></h2>
-    <p>Next visit:</p>
+  <h3><%= cabin.name %></h3>
+    <p>Seuraava reissu:</p>
     <% if cabin.next_visit(cabin.id).nil? %>
-        <p>No visits scheduled in the near future</p>
+        <p>Hmm, kukaan ei tunnusta menevänsä seuraavan 6kk sisällä..</p>
     <% else %>
         <p><%= cabin.next_visit(cabin.id) %></p>
     <% end %>

@@ -37,13 +37,41 @@ img {
   @extend .btn-lg;
   }
 
+.login {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 50%;
+}
+
+.btn-default {
+  margin-bottom: 5px;
+}
+
+.btn-default, .btn-default:focus, .btn-default:active {
+  background-color:#3D3242;
+  border-color:#3D3242;
+  color: #D1D1D1;
+}
+
+.btn-default:hover {
+  background-color:#7A3E48;
+  border-color:#3D3242;
+  color: #D1D1D1;
+}
+.btn-default:visited {
+  color: #D1D1D1;
+}
+
 .btn-primary {
+  margin-bottom: 5px;
+}
+
+.btn-primary, .btn-primary:focus, .btn-primary:active {
   background-color:#3D3242;
   border-color:#3D3242;
 }
-.login {
-  text-align: center;
-}
+
 .btn-primary:hover {
   background-color:#7A3E48;
   border-color:#3D3242;
@@ -51,6 +79,21 @@ img {
 .btn-primary:visited {
   color: #D1D1D1;
 }
+
+.btn-danger, .btn-danger:focus, .btn-danger:active {
+  background-color:#915B51;
+  border-color:#915B51;
+}
+
+.btn-danger:hover {
+  background-color:#7A3E48;
+  border-color:#7A3E48;
+}
+.btn-danger:visited {
+  color: #D1D1D1;
+}
+
+
 .text-muted {
   color: #D1D1D1;
   text-align: center;
@@ -81,7 +124,6 @@ img {
 
 .col-md-2, .col-md-8 {
 
-  height: 100%;
 }
 
 #footer {
@@ -111,8 +153,13 @@ section {
 
   }
 body {
-  height: 100%;
   background: url('http://www.cs.helsinki.fi/u/laxlax/Laituri.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+@media (max-width: 767px) {
+  .login {
+    width: 50%;
+  }
 }

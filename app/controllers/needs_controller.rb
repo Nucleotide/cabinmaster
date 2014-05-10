@@ -39,7 +39,7 @@ class NeedsController < ApplicationController
     respond_to do |format|
       if @need.save
         current_user.needs << @need
-        format.html { redirect_to needs_path, notice: 'Need was successfully created.' }
+        format.html { redirect_to needs_path, notice: 'Luonti onnistui!' }
         format.json { render action: 'show', status: :created, location: @need }
       else
         @cabins = Cabin.all
@@ -54,7 +54,7 @@ class NeedsController < ApplicationController
   def update
     respond_to do |format|
       if @need.update(need_params)
-        format.html { redirect_to needs_path, notice: 'Need was successfully updated.' }
+        format.html { redirect_to needs_path, notice: 'Muokkaus onnistui!' }
         format.json { head :no_content }
       else
         @cabins = Cabin.all
@@ -69,7 +69,7 @@ class NeedsController < ApplicationController
   def destroy
     @need.destroy
     respond_to do |format|
-      format.html { redirect_to needs_url, notice: 'Need was successfully destroyed.' }
+      format.html { redirect_to needs_url, notice: 'Poisto onnistui!' }
       format.json { head :no_content }
     end
   end

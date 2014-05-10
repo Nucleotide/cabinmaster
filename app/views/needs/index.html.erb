@@ -1,13 +1,18 @@
-<h1>Listing needs</h1>
-<p>You can order the list based on cabin, user or the information.<br/>
-    Want to search? Ctrl + F</p>
+<h1>Puutteet</h1>
+<p>Listan järjestystä voi muokata painalla sarakkeen nimeä<br/>
+  Pääset muokkamaan tietoja klikkaamalla puutteen tekstiä<br>
+  Voit myös etsiä listalta jotain tiettyä puutetta</p>
+
+<% unless current_user.nil? %>
+    <%= link_to 'Lisää uusi puute', new_need_path, class:'btn btn-primary' %>
+<% end %>
 
 <table class="table table-condensed">
   <thead>
     <tr>
-      <th><%= link_to 'Cabin', needs_path(order:"cabin") %></th>
-      <th><%= link_to 'User', needs_path(order:"user") %></th>
-      <th><%= link_to 'Info', needs_path(order:"info") %></th>
+      <th><%= link_to 'Mökki', needs_path(order:"cabin") %></th>
+      <th><%= link_to 'Lisääjä', needs_path(order:"user") %></th>
+      <th><%= link_to 'Tiedot', needs_path(order:"info") %></th>
       <th></th>
       <th></th>
     </tr>
@@ -18,17 +23,12 @@
       <tr>
         <td><%= need.cabin_name(need.cabin_id) %></td>
         <td><%= need.user_name(need.user_id) %></td>
-        <td><%= need.info %></td>
-        <td><%= link_to 'Edit', edit_need_path(need) %></td>
-        <td><%= link_to 'Destroy', need, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to need.info, edit_need_path(need) %></td>
+        <td><%= link_to 'Poista', need, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<% unless current_user.nil? %>
-    <%= link_to 'New Need', new_need_path, class:'btn btn-primary' %>
-<% end %>
 

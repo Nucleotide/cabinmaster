@@ -14,7 +14,7 @@ class Cabin < ActiveRecord::Base
       if visit.nil?
         return nil
       else
-        return "Start date: " + visit.start_date.to_s + ", End date: " + visit.end_date.to_s + ", Visitor: " + visit.user_name(visit.user_id)
+        return "Menopäivä: " + visit.start_date.to_s + "\nPoislähtö: " + visit.end_date.to_s + "\nKuka menossa: " + visit.user_name(visit.user_id)
       end
     end
   end

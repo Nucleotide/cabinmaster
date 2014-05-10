@@ -1,12 +1,13 @@
 <div class="login">
-    <h3>Please, sign in first</h3>
+    <h3>Kirjaudu sisään</h3>
 
     <%= form_tag sessions_path do %>
-        <%= text_field_tag :name, params[:name], :placeholder => 'Username' %><br/><br/>
-        <%= text_field_tag :password, params[:password], :placeholder => 'Password' %><br/><br/>
-        <%= submit_tag "Log in" %>
-
+      <div class="form-group">
+        <input class="form-control" <%= text_field_tag :name, params[:name], :placeholder => 'Käyttäjätunnus' %></input>
+      </div>
+      <div class="form-group">
+        <input class="form-control" <%= text_field_tag :password, params[:password], :placeholder => 'Salasana' %></input>
+      </div>
+      <%= submit_tag "Kirjaudu", class:'btn btn-primary' %>
     <% end %>
 </div>
-
-

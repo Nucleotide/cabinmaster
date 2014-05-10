@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.3'
 
+gem 'bootstrap_form'
+
 gem 'date_validator', '~> 0.7.0'
 
 gem 'bcrypt-ruby', '~> 3.1.2'
