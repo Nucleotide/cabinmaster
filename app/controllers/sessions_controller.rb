@@ -12,15 +12,15 @@ class SessionsController < ApplicationController
     user = User.find_by name: params[:name]
 
     if user.nil? or not user.authenticate params[:password]
-      redirect_to :back, notice: "username and password do not match"
+      redirect_to :back, notice: "Tarkista syöttämästi tiedot"
     else
       session[:user_id] = user.id
-      redirect_to cabins_path, notice: "Welcome back!"
+      redirect_to cabins_path, notice: "Kirjautuminen onnistui!"
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to cabins_path, notice: "Logged out!"
+    redirect_to cabins_path, notice: "Olet kirjautunut ulos!"
   end
 end

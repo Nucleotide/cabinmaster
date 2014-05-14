@@ -39,7 +39,7 @@ class SuppliesController < ApplicationController
     respond_to do |format|
       if @supply.save
         current_user.supplies << @supply
-        format.html { redirect_to supplies_path, notice: 'Supply was successfully created.' }
+        format.html { redirect_to supplies_path, notice: 'Luonti onnistui!' }
         format.json { render action: 'show', status: :created, location: @supply }
       else
         @cabins = Cabin.all
@@ -54,7 +54,7 @@ class SuppliesController < ApplicationController
   def update
     respond_to do |format|
       if @supply.update(supply_params)
-        format.html { redirect_to supplies_path, notice: 'Supply was successfully updated.' }
+        format.html { redirect_to supplies_path, notice: 'Muokkaus onnistui!' }
         format.json { head :no_content }
       else
         @cabins = Cabin.all
@@ -69,7 +69,7 @@ class SuppliesController < ApplicationController
   def destroy
     @supply.destroy
     respond_to do |format|
-      format.html { redirect_to supplies_url, notice: 'Supply was successfully deleted.' }
+      format.html { redirect_to supplies_url, notice: 'Poisto onnistui!' }
       format.json { head :no_content }
     end
   end

@@ -1,7 +1,7 @@
 <h1>Puutteet</h1>
-<p>Listan järjestystä voi muokata painalla sarakkeen nimeä<br/>
-  Pääset muokkamaan tietoja klikkaamalla puutteen tekstiä<br>
-  Voit myös etsiä listalta jotain tiettyä puutetta</p>
+<p>Listan järjestystä voi muokata painalla sarakkeen nimeä.<br/>
+  Pääset muokkamaan tietoja klikkaamalla puutteen tekstiä.<br>
+  Voit myös etsiä listalta jotain tiettyä puutetta.</p>
 
 <% unless current_user.nil? %>
     <%= link_to 'Lisää uusi puute', new_need_path, class:'btn btn-primary' %>
@@ -24,11 +24,8 @@
         <td><%= need.cabin_name(need.cabin_id) %></td>
         <td><%= need.user_name(need.user_id) %></td>
         <td><%= link_to need.info, edit_need_path(need) %></td>
-        <td><%= link_to 'Poista', need, method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %></td>
+        <td><%= link_to 'Poista', need, method: :delete, data: { confirm: 'Oletko varma poistosta?' }, class:'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-

@@ -35,7 +35,7 @@ class VisitsController < ApplicationController
     respond_to do |format|
       if @visit.save
         current_user.visits << @visit
-        format.html { redirect_to visits_path, notice: 'Visit was successfully created.' }
+        format.html { redirect_to visits_path, notice: 'Luonti onnistui!' }
         format.json { render action: 'show', status: :created, location: @visit }
       else
         @cabins = Cabin.all
@@ -50,7 +50,7 @@ class VisitsController < ApplicationController
   def update
     respond_to do |format|
       if @visit.update(visit_params)
-        format.html { redirect_to visits_path, notice: 'Visit was successfully updated.' }
+        format.html { redirect_to visits_path, notice: 'Muokkaus onnistui!' }
         format.json { head :no_content }
       else
         @cabins = Cabin.all
@@ -65,7 +65,7 @@ class VisitsController < ApplicationController
   def destroy
     @visit.destroy
     respond_to do |format|
-      format.html { redirect_to visits_url, notice: 'Visit was successfully canceled.' }
+      format.html { redirect_to visits_url, notice: 'Poisto onnistui!' }
       format.json { head :no_content }
     end
   end

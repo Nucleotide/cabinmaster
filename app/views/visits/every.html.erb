@@ -1,27 +1,29 @@
-<h1>Listing all visits</h1>
+<h1>Vierailuhistoria</h1>
 
 <table class="table table-condensed">
   <thead>
   <tr>
-    <th>Start date</th>
-    <th>End date</th>
-    <th>Cabin</th>
-    <th>User</th>
+    <th>Menopäivä</th>
+    <th>Lähtöpäivä</th>
+    <th>Mökki</th>
+    <th>Kuka</th>
   </tr>
   </thead>
 
   <tbody>
   <% @visits.each do |visit| %>
+      <% if visit.start_date < Date.today %>
           <tr>
-            <td><%= visit.start_date %></td>
-            <td><%= visit.end_date %></td>
+            <td><%= l visit.start_date %></td>
+            <td><%= l visit.end_date %></td>
             <td><%= visit.cabin_name(visit.cabin_id) %></td>
             <td><%= visit.user_name(visit.user_id) %></td>
           </tr>
+      <% end %>
   <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'Back', visits_path, class:'btn btn-primary' %>
+<%= link_to 'Takaisin', visits_path, class:'btn btn-primary' %>

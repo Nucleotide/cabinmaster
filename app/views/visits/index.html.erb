@@ -1,12 +1,12 @@
-<h1>Listing Future visits</h1>
+<h1>Tulevat mökkeilyt</h1>
 
 <table class="table table-condensed">
   <thead>
     <tr>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Cabin</th>
-      <th>User</th>
+      <th>Menopäivä</th>
+      <th>Lähtöpäivä</th>
+      <th>Mökki</th>
+      <th>Kuka</th>
       <th></th>
       <th></th>
     </tr>
@@ -16,12 +16,12 @@
     <% @visits.each do |visit| %>
       <% if visit.start_date >= Date.today %>
            <tr>
-            <td><%= visit.start_date %></td>
-            <td><%= visit.end_date %></td>
+            <td><%= l visit.start_date %></td>
+            <td><%= l visit.end_date %></td>
             <td><%= visit.cabin_name(visit.cabin_id) %></td>
             <td><%= visit.user_name(visit.user_id) %></td>
-            <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
-            <td><%= link_to 'Destroy', visit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Muokkaa', edit_visit_path(visit), class:'btn btn-primary' %></td>
+            <td><%= link_to 'Poista', visit, method: :delete, data: { confirm: 'Oletko varma?' }, class:'btn btn-danger' %></td>
           </tr>
         <% end %>
     <% end %>
@@ -31,6 +31,6 @@
 <br>
 
 <% unless current_user.nil? %>
-    <%= link_to 'All visits', all_visits_path, class:'btn btn-primary' %><br/><br/>
-    <%= link_to 'New Visit', new_visit_path, class:'btn btn-primary' %>
+    <%= link_to 'Vierailuhistoria', all_visits_path, class:'btn btn-primary' %>
+    <%= link_to 'Lisää vierailu', new_visit_path, class:'btn btn-primary' %>
 <% end %>
